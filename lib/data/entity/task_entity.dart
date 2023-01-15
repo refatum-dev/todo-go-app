@@ -1,11 +1,18 @@
 import 'package:equatable/equatable.dart';
+import 'package:objectbox/objectbox.dart';
 import 'package:todogo_app/domain/model/task.dart';
 
+@Entity()
 class TaskEntity extends Equatable implements Task {
   const TaskEntity(
-      this.id, this.title, this.description, this.dateTime, this.isCompleted);
+      {required this.id,
+      required this.title,
+      required this.description,
+      required this.dateTime,
+      required this.isCompleted});
 
   @override
+  @Id()
   final int id;
 
   @override
@@ -15,6 +22,7 @@ class TaskEntity extends Equatable implements Task {
   final String description;
 
   @override
+  @Property(type: PropertyType.date)
   final DateTime dateTime;
 
   @override
@@ -22,4 +30,8 @@ class TaskEntity extends Equatable implements Task {
 
   @override
   List<Object?> get props => [id];
+
+  set id(int inputId) {
+    id = inputId;
+  }
 }
