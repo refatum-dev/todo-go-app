@@ -33,9 +33,14 @@ dependencies:
     sdk: flutter
   equatable: ^2.0.5
   cupertino_icons: ^1.0.2
+  objectbox: ^1.7.0
+  objectbox_flutter_libs: any
+
 
 
 dev_dependencies:
+  objectbox_generator: any
+  build_runner: ^2.0.0
   flutter_test:
     sdk: flutter
 
